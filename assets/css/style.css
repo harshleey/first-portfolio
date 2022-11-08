@@ -8,20 +8,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Poppins:wght@200;300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
 
-/* font-family: 'Montserrat', sans-serif;
-font-family: 'Poppins', sans-serif; */
-
-/* font-family: 'Montserrat', sans-serif; */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap");
 
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+:root {
+  --font-1    : "Inter", sans-serif;
+  --font-2    : "Manrope", sans-serif;
+
+  /* monospace
+  */
+  --font-mono : Consolas, "Andale Mono", Courier, "Courier New", monospace;
+}
+
+/* ============ COLORS ========= */
+:root {
+  --color-body : #101112;
+
+  --color-body                   : var(--color-gray-12);
+  --color-border                 : rgba(255, 255, 255, .05);
+  --border-radius                : 3px;
+}
+
+
 body {
   background-color: rgba(0, 0, 0, 0.99);
   color: #f5f5f5;
-  /* font-family: 'Poppins', sans-serif; */
   font-family: 'Josefin Sans', sans-serif;
-  /* font-size: 1.1em; */
 }
 
 h1,
@@ -30,13 +44,15 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Montserrat', sans-serif;
-  color: #094030;
+  font-family: var(--font-1);
+  
 }
 
-h3 {
-  color: #22F2B7;
+h5 {
+  color: #000;
 }
+
+
 
 a {
   color: #1e1e1e;
@@ -180,7 +196,7 @@ a:hover {
 .line-mf {
   width: 40px;
   height: 5px;
-  background-color: #094030;
+  /* background-color: #094030; */
   margin: 0 auto;
 }
 
@@ -210,14 +226,13 @@ a:hover {
 .box-shadow-full {
   padding: 3rem 1.25rem;
   position: relative;
-  /* background-color: #fff; */
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 40px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
-  border-radius: 10px;
-  margin-bottom: 3rem;
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   z-index: 2;
-  /* box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.2); */
 }
 @media (min-width: 768px) {
   .box-shadow-full {
@@ -239,11 +254,11 @@ a:hover {
   border-radius: 50%;
   line-height: 1.6;
   margin: 0 15px 0 0;
-  box-shadow: 0 0 0 3px #094030;
+  /* box-shadow: 0 0 0 3px #094030; */
   transition: all 500ms ease;
 }
 .socials .ico-circle:hover {
-  background-color: #094030;
+  /* background-color: #094030; */
   color: #fff;
   box-shadow: 0 0 0 3px #cde1f8;
   transition: all 500ms ease;
@@ -260,7 +275,7 @@ a:hover {
   line-height: 2;
 }
 .list-ico span {
-  color: #094030;
+  /* color: #094030; */
   margin-right: 10px;
 }
 
@@ -273,7 +288,7 @@ a:hover {
   line-height: 1.55;
   /* margin: 0 auto; */
   text-align: center;
-  box-shadow: 0 0 0 10px #094030;
+  /* box-shadow: 0 0 0 10px #094030; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -339,7 +354,7 @@ a:hover {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #094030;
+  background: #800080;
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -351,7 +366,7 @@ a:hover {
   line-height: 0;
 }
 .back-to-top:hover {
-  background: #18d26e;
+  background: #8f16c9;
   color: #fff;
 }
 .back-to-top.active {
@@ -368,7 +383,7 @@ a:hover {
   bottom: 0;
   z-index: 9999;
   overflow: hidden;
-  background: #fff;
+  background: #101112;
 }
 
 #preloader:before {
@@ -377,7 +392,7 @@ a:hover {
   top: calc(50% - 30px);
   left: calc(50% - 30px);
   border: 6px solid #f2f2f2;
-  border-top: 6px solid #094030;
+  border-top: 6px solid #8f16c9;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -452,11 +467,7 @@ a:hover {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-#header {
-  transition: all 0.5s;
-  z-index: 997;
-  padding: 20px 0;
-}
+
 #header .logo {
   font-size: 28px;
   margin: 0;
@@ -464,14 +475,41 @@ a:hover {
   font-weight: 600;
   letter-spacing: 1px;
   font-family: 'Josefin Sans', sans-serif; ;
+} 
+
+#header{
+  --logo-width : 104px;
+  --box-shadow : 0 1px 1px rgba(0, 0, 0, 0.06),
+      0 2px 2px rgba(0, 0, 0, 0.06),
+      0 4px 4px rgba(0, 0, 0, 0.06),
+      0 8px 8px rgba(0, 0, 0, 0.06);
+
+  z-index          : 100;
+  display          : flex;
+  height           : 5em;
+  background-color : var(--color-body);
+  border-bottom    : 1px solid var(--color-border);
+  width            : 100%;
+  position         : fixed;
+  top              : 0;
+  left             : 0;
+  transition: all 0.5s;
+  z-index: 997;
+  padding: 20px 0;
 }
 
-#header .logo span {
-  color: #18d26e;
+#header > .container {
+  z-index : 101;
 }
-#header .logo a {
-  color: #094030;
+
+#header .logo a{
+  color: #301934
 }
+
+ #header .logo span {
+  color: #8f16c9;
+}
+
 #header .logo img {
   max-height: 40px;
 }
@@ -507,15 +545,16 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #fff;
+  color: #d0d0d0;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 00;
   padding: 0;
   white-space: nowrap;
   transition: 0.3s;
   letter-spacing: 0.4px;
   position: relative;
   text-transform: uppercase;
+  font-family: var(--font-mono);
 }
 .navbar a i, .navbar a:focus i {
   font-size: 12px;
@@ -530,7 +569,7 @@ a:hover {
   bottom: -6px;
   left: 0;
   width: 0;
-  background-color: #fff;
+  background-color: #8f16c9;
   visibility: hidden;
   transition: all 0.3s ease-in-out 0s;
 }
@@ -714,6 +753,7 @@ a:hover {
   color: #fff;
   font-weight: 600;
   font-size: 3rem;
+  font-family: var(--font-mono);
 }
 @media (min-width: 768px) {
   .hero .hero-title {
@@ -765,6 +805,16 @@ a:hover {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
+#about {
+  background-color:#000;
+  color: #fff;
+  padding: 4rem 0;
+}
+
+#about .lead {
+  font-weight: 400;
+  font-family: var(--font-2);
+}
 .about-mf .box-shadow-full {
   padding-top: 4rem;
   padding-bottom: 4rem;
@@ -799,22 +849,49 @@ a:hover {
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
+#services {
+  background-color: #800080;
+  color: #fff;
+}
+.services-title {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin-bottom: 1em;
+  color: #000;
+  letter-spacing: 5px;
+}
+
+.services-subtitle {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  font-family: var(--font-mono);
+  max-width: 500px;
+  margin: 0 auto
+}
+
+
 .service-box {
-  background-color: #fff;
-  padding: 2.5rem 1.3rem;
+  padding: 1.5rem 1.1rem;
+  /* background-color: pink; */
   border-radius: 1rem;
   margin-bottom: 3rem;
   text-align: center;
+  height: 450px;
+  padding: 3rem 1.25rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
+
 .service-box:hover .ico-circle {
   transition: all 500ms ease;
-  color: #fff;
-  background-color: #094030;
-  box-shadow: 0 0 0 10px #cde1f8;
 }
 .service-box .service-ico {
   margin-bottom: 1rem;
-  color: #094030;
 }
 .service-box .ico-circle {
   transition: all 500ms ease;
@@ -833,7 +910,41 @@ a:hover {
   padding: 0.4rem 0;
 }
 .service-box .s-description {
-  color: #000;
+  color: #fff;
+  font-size: 1.2em;
+  font-family: var(--font-mono);
+}
+
+@media (min-width: 768px) {
+  .service-row {
+    /* background-color: yellow; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .sub-service {
+    width: 50%;
+  }
+
+  .service-box {
+  height: 510px;
+  }
+}
+@media (min-width: 992px) {
+  .sub-service {
+    width: 33.3%;
+  }
+
+  .service-box .s-description {
+    text-align: justify;
+  }
+}
+@media (min-width: 1200px) {
+  .testimonial-box .description {
+    padding: 0 13rem;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1040,6 +1151,15 @@ a:hover {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
+
+#contact {
+  padding-bottom: 4em;
+}
+
+.contact-content {
+  font-size: 2rem;
+}
+
 .footer-paralax {
   padding: 4rem 0 0 0;
 }
@@ -1094,7 +1214,7 @@ a:hover {
   font-size: 14px;
 }
 .php-email-form input:focus, .php-email-form textarea:focus {
-  border-color: #094030;
+  border-color: #8f16c9;
 }
 .php-email-form input {
   padding: 10px 15px;
@@ -1104,14 +1224,14 @@ a:hover {
   margin-bottom: 0;
 }
 .php-email-form button[type=submit] {
-  background: #18d26e;
+  background: #800080;
   border: 0;
   padding: 10px 24px;
   color: #fff;
   transition: 0.4s;
 }
 .php-email-form button[type=submit]:hover {
-  background: #094030;
+  background: #8f16c9;
 }
 
 @-webkit-keyframes animate-loading {
@@ -1323,8 +1443,8 @@ a:hover {
 footer {
   text-align: center;
   color: #fff;
-  padding: 25px 0;
-  background: #18d26e;
+  padding: 2.5em 0;
+  background: #301934;
 }
 footer .copyright {
   margin-bottom: 0.3rem;
